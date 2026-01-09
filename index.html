@@ -42,14 +42,14 @@
     <div class="red-divider"></div>
 
     <div class="envelope-block">
-        <img src="images/card-with-red-envelope.png" class="envelope" alt="Конверт">
-        <div class="letter">
-            <p>
-                Это официальное приглашение на нашу свадьбу!
-                А получили вы его потому, что мы очень хотим
-                видеть вас в этот день рядом с нами!
-            </p>
-        </div>
+        <img src="images/card-with-red-envelope.jpg" class="envelope" alt="Конверт">
+            <div class="letter">
+        <p>
+            Это официальное приглашение на нашу свадьбу.
+            Мы будем очень рады видеть вас рядом с нами
+            в этот особенный день.
+        </p>
+    </div>
     </div>
 
     <div class="calendar">
@@ -65,14 +65,15 @@
             <span class="number">17</span>
 
             <svg class="heart" viewBox="0 0 100 100">
-                <path d="M50 80
-                         C20 60, 0 40, 25 20
-                         C40 5, 50 20, 50 20
-                         C50 20, 60 5, 75 20
-                         C100 40, 80 60, 50 80"
-                      fill="none"
-                      stroke="#b21c1c"
-                      stroke-width="4"/>
+                <path class="heart-path" d="M50 30 
+                        C50 20, 15 15, 15 45 
+                        C15 65, 35 80, 50 90 
+                        C65 80, 85 65, 85 45 
+                        C85 15, 50 20, 50 30 Z" 
+                    fill="none" 
+                    stroke="#b21c1c" 
+                    stroke-width="3" 
+                    stroke-linecap="round"/>
             </svg>
         </div>
 
@@ -87,23 +88,92 @@
 
 <div class="red-divider"></div>
 
-<section class="section">
-    <h2>Детали свадьбы</h2>
-    <ul>
-        <li><strong>Дата:</strong> 17 июля 2026</li>
-        <li><strong>Время:</strong> 16:00</li>
-        <li><strong>Место:</strong> Ресторан Igloobar, Нижний Сусальный переулок, 5с19</li>
-    </ul>
+<section class="location-section">
+    <div class="wave-line wave-top"></div>
+    
+    <div class="location-container">
+        <h2 class="location-title">МЕСТО ПРОВЕДЕНИЯ</h2>
+        <p class="save-place">Сохраните себе место!</p>
+        
+        <div class="location-details">
+            <p>Ресторан Igloobar ,</p>
+            <p>Нижний Сусальный переулок, 5с19</p>
+        </div>
+
+        <div class="location-image-wrapper">
+            <img src="images/location.jpg" alt="Бокалы" class="location-photo">
+        </div>
+
+        <a href="https://yandex.ru/maps/org/igloobar/189808664724/?ll=37.666033%2C55.759377&z=16" target="_blank" class="map-button">
+            КАК ДОБРАТЬСЯ
+        </a>
+    </div>
+
+    <div class="wave-line wave-bottom"></div>
 </section>
 
-<section class="section">
-    <h2>Программа дня</h2>
-    <ul>
-        <li>16:00 — Сбор гостей</li>
-        <li>16:30 — Начало банкета</li>
-        <li>21:00 — Окончание банкета</li>
-    </ul>
+<section class="timing-section">
+    <div class="timing-divider"></div>
+
+    <div class="timing-container">
+        <h2 class="timing-title">ТАЙМИНГ</h2>
+        <p class="timing-subtitle">торжественного дня</p>
+
+        <div class="timing-grid">
+            <div class="timing-item">
+                <span class="time">16:00</span>
+                <span class="event">Сбор гостей</span>
+            </div>
+            <div class="timing-item">
+                <span class="time">16:30</span>
+                <span class="event">Начало банкета</span>
+            </div>
+            <div class="timing-item">
+                <span class="time">21:00</span>
+                <span class="event">Окончание банкета</span>
+            </div>
+        </div>
+    </div>
 </section>
+
+
+<section class="dress-code-section">
+    <div class="container">
+        <h2 class="dress-code-title">ДРЕСС-КОД</h2>
+        <div class="dress-code-text">
+            <p>
+                Мы очень ждём и готовимся к нашему незабываемому дню! 
+                Поддержите нас Вашими улыбками и объятиями, 
+                а также красивыми нарядами. Приветствуется 
+                пастельная цветовая палитра, исключая черный и белый цвета
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<section class="gifts-section">
+    <div class="timing-divider"></div>
+
+    <div class="gifts-container">
+        <div class="gifts-message">
+            <p>Не ломайте голову над подарком —</p>
+            <p>мы будем рады Вашим пожеланиям в конвертах.</p>
+        </div>
+
+        <div class="contacts-block">
+            <p class="contacts-desc">
+                Если Вы хотите сделать для нас сюрприз или хотите уточнить детали, пожалуйста, свяжитесь с нами:
+            </p>
+            
+            <div class="phones">
+                <a href="tel:+79851961971" class="phone-link">+7 (985) 196-19-71 Никита</a>
+                <a href="tel:+79165842022" class="phone-link">+7 (916) 584-20-22 Наташа</a>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <section class="section">
     <h2>Подтверждение участия</h2>

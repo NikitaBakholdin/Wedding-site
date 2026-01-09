@@ -16,7 +16,7 @@ body {
 .hero-title,
 .section h2,
 .weekday {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Courier New', Courier, monospace; 
     letter-spacing: 3px;
     text-transform: uppercase;
 }
@@ -46,17 +46,18 @@ body {
 }
 
 .hero-title {
-    font-size: 18px;
+    font-size: 58px;
     margin-bottom: 30px;
 }
 
 .names {
     font-size: 48px;
     margin-bottom: 40px;
+    font-family: 'Great Vibes', cursive;
 }
 
 .hero-image {
-    width: 60%;
+    width: 70%;
     max-width: 600px;
     margin: 0 auto 40px;
     display: block;
@@ -64,6 +65,7 @@ body {
 }
 
 .hero-date {
+    font-size: 24px;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 4px;
 }
@@ -84,7 +86,9 @@ body {
 }
 
 .invite-title {
-    font-size: 48px;
+    position: relative;
+    font-family: 'Playfair Display', serif;
+    font-size: 68px; /* Крупный размер как на фото */
     margin-bottom: 40px;
 }
 
@@ -102,14 +106,27 @@ body {
 
 .letter {
     position: absolute;
-    bottom: 35%;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
-    background: #fff;
-    padding: 25px 30px;
-    width: 75%;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+    width: 80%;
+    padding: 30px 35px;
+
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    opacity: 1;
+
+    font-family: 'Courier New', Courier, monospace; 
+    font-size: 24px;
+    line-height: 1.4;
+    color: #444;
+
+    z-index: 2;
 }
+
+
 
 /* CALENDAR */
 .calendar {
@@ -145,32 +162,296 @@ body {
 
 .heart {
     position: absolute;
-    top: 40px;
+    top: 58%; /* Центрируем относительно числа */
     left: 50%;
-    width: 120px;
-    transform: translateX(-50%);
+    width: 150px; /* Размер можно подправить под ваши цифры */
+    height: 120px;
+    transform: translate(-50%, -45%) rotate(-5deg); /* Слегка наклоняем для живости */
+    pointer-events: none; /* Чтобы сердце не мешало кликам, если они будут */
+    z-index: 1;
 }
 
-/* SECTIONS */
-.section {
-    max-width: 900px;
-    margin: 120px auto;
-    padding: 0 20px;
+.heart-path {
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation: drawHeart 2s ease-out forwards;
+}
+
+/* Анимация "рисования" линии сердца */
+@keyframes drawHeart {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Сделаем число 17 чуть заметнее, раз оно в центре сердца */
+.day.active .number {
+    position: relative;
+    z-index: 2;
+    color: #b21c1c; /* Можно выделить дату красным */
+}
+
+
+/* СЕКЦИЯ МЕСТО ПРОВЕДЕНИЯ */
+.location-section {
+    position: relative;
+    padding: 100px 20px;
     text-align: center;
+    overflow: hidden; /* Чтобы линии не создавали прокрутку */
+    background-color: #fff;
 }
 
-.section h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
+.location-container {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.section ul {
-    list-style: none;
+/* Заголовок (в стиле Playfair Display) */
+.location-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
 }
 
-.section li {
+/* Курсивная надпись Save the place */
+.save-place {
+    font-family: 'Great Vibes', cursive;
+    font-size: 32px;
+    color: #b21c1c;
+    margin-bottom: 30px;
+}
+
+/* Адрес (имитация печатной машинки или тонкого гротеска) */
+.location-details {
+    font-family: 'Courier New', Courier, monospace; 
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+/* Фотография */
+.location-image-wrapper {
+    max-width: 600px;
+    margin: 0 auto 50px;
+}
+
+.location-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(100%); /* Делаем черно-белым как на макете */
+}
+
+/* Кнопка */
+.map-button {
+    display: inline-block;
+    background-color: #b21c1c;
+    color: #fff;
+    padding: 15px 60px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    transition: background 0.3s ease;
+}
+
+.map-button:hover {
+    background-color: #8a1515;
+}
+
+/* ДЕКОРАТИВНЫЕ ЛИНИИ (SVG на фоне) */
+.wave-line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Верхняя линия */
+.wave-top {
+    top: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='none' stroke='%23b21c1c' stroke-width='1' d='M0,160 C480,320 960,0 1440,160'%3E%3C/path%3E%3C/svg%3E");
+}
+
+/* Нижняя линия */
+.wave-bottom {
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='none' stroke='%23b21c1c' stroke-width='1' d='M0,200 C600,100 800,400 1440,150'%3E%3C/path%3E%3C/svg%3E");
+}
+
+/* ОБЩАЯ СЕКЦИЯ ТАЙМИНГА */
+.timing-section {
+    padding: 100px 0;
+    text-align: center;
+    background-color: #fff;
+}
+
+.timing-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Красная линия (чуть под наклоном, как на фото) */
+.timing-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #b21c1c;
+    margin-bottom: 60px;
+    transform: rotate(-0.5deg); /* Легкий наклон для динамики */
+}
+
+/* Заголовок ТАЙМИНГ */
+.timing-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 68px; /* Крупный размер как на фото */
+    font-weight: 500;
+    letter-spacing: 5px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    color: #000;
+}
+
+/* Подзаголовок Of the day */
+.timing-subtitle {
+    font-family: 'Great Vibes', cursive;
+    font-size: 38px;
+    color: #b21c1c;
+    margin-bottom: 80px;
+}
+
+/* Сетка с пунктами времени */
+.timing-grid {
+    display: flex;
+    justify-content: space-around; /* Распределяем элементы по горизонтали */
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.timing-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 150px;
+}
+
+/* Время (16:00) */
+.time {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
     margin-bottom: 10px;
 }
+
+/* Описание (Сбор гостей) */
+.event {
+    font-family: 'Courier New', Courier, monospace; 
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+    max-width: 140px;
+}
+
+/* СЕКЦИЯ ДРЕСС-КОД */
+.dress-code-section {
+    padding: 120px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+/* Заголовок ДРЕСС-КОД (как на макете) */
+.dress-code-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 10vw, 110px); /* Адаптивный размер: от 48px до 110px */
+    font-weight: 500;
+    letter-spacing: -2px; /* Плотное написание букв */
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    color: #000;
+    line-height: 0.9;
+}
+
+/* Текст (эффект жирной печатной машинки) */
+.dress-code-text {
+    max-width: 850px;
+    margin: 0 auto;
+    /* Моноширинный шрифт для эффекта "печатной машинки" */
+    font-family: 'Courier New', Courier, monospace; 
+    font-size: 24px;
+    font-weight: 1000; /* Максимальная жирность как на фото */
+    line-height: 1.3;
+    color: #000;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+/* СЕКЦИЯ ПОДАРКИ И КОНТАКТЫ */
+.gifts-section {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.gifts-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Текст про конверты (стиль печатной машинки) */
+.gifts-message {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.4;
+    color: #000;
+    margin-bottom: 60px;
+    text-transform: uppercase; /* Можно убрать, если не нужен капс */
+}
+
+/* Описание контактов */
+.contacts-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Блок с кнопками-телефонами */
+.phones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.phone-link {
+    display: inline-block;
+    padding: 12px 35px;
+    border: 1px solid #b21c1c; /* Красная рамка как на фото */
+    border-radius: 50px; /* Закругленные края */
+    color: #b21c1c;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.phone-link:hover {
+    background-color: #b21c1c;
+    color: #fff;
+}
+
 
 /* FORM */
 .form-wrapper iframe {
@@ -184,6 +465,7 @@ body {
     text-align: center;
     padding: 40px;
     margin-top: 120px;
+    font-size: 24px;
 }
 
 /* MOBILE */
@@ -196,11 +478,49 @@ body {
         font-size: 36px;
     }
 
+    .letter {
+        font-size: 18px; /* На мобильных уменьшаем, чтобы текст не вылезал за конверт */
+        bottom: 20px;    /* Приподнимаем или опускаем в зависимости от картинки */
+        width: 85%;
+    }
+
     .calendar {
         grid-template-columns: 1fr;
     }
 
     .number {
         font-size: 56px;
+    }
+        .location-title {
+        font-size: 36px;
+    }
+    .save-place {
+        font-size: 24px;
+    }
+    .map-button {
+        width: 80%;
+        padding: 15px 20px;
+    }
+    .timing-title {
+        font-size: 48px;
+    }
+    .timing-subtitle {
+        font-size: 28px;
+    }
+    .timing-grid {
+        flex-direction: column; /* На телефонах пункты будут друг под другом */
+        gap: 30px;
+    }
+    .time {
+        font-size: 36px;
+    }
+    .dress-code-title {
+        letter-spacing: 0;
+        margin-bottom: 30px;
+    }
+    
+    .dress-code-text {
+        font-size: 18px;
+        line-height: 1.4;
     }
 }
