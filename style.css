@@ -1,39 +1,162 @@
+/* RESET */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
+/* BASE */
 body {
-    background: #f7f5f2;
-    color: #333;
+    background: #ffffff;
+    color: #111;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* TYPOGRAPHY ROLES */
+.hero-title,
+.section h2,
+.weekday {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.names,
+.invite-title,
+.number {
+    font-family: 'Playfair Display', serif;
+}
+
+.section p,
+.section li,
+.letter {
+    font-size: 18px;
     line-height: 1.6;
 }
 
-.hero {
-    background: #e8ded1;
+/* HERO */
+.hero-paper {
+    padding: 120px 20px;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
     text-align: center;
-    padding: 80px 20px;
 }
 
-.hero h1 {
-    font-size: 42px;
-}
-
-.date {
-    font-size: 22px;
-    margin: 10px 0;
-}
-
-.subtitle {
+.hero-title {
     font-size: 18px;
+    margin-bottom: 30px;
 }
 
+.names {
+    font-size: 48px;
+    margin-bottom: 40px;
+}
+
+.hero-image {
+    width: 60%;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    display: block;
+    filter: grayscale(100%);
+}
+
+.hero-date {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 4px;
+}
+
+/* RED LINE */
+.red-divider {
+    width: 120%;
+    height: 2px;
+    background: #b21c1c;
+    margin: 80px auto;
+    transform: rotate(-2deg);
+}
+
+/* INVITE PAGE */
+.invite-page {
+    padding: 120px 20px;
+    text-align: center;
+}
+
+.invite-title {
+    font-size: 48px;
+    margin-bottom: 40px;
+}
+
+/* ENVELOPE */
+.envelope-block {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto 120px;
+}
+
+.envelope {
+    width: 100%;
+    display: block;
+}
+
+.letter {
+    position: absolute;
+    bottom: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 25px 30px;
+    width: 75%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* CALENDAR */
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 900px;
+    margin: 0 auto;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.day {
+    padding: 30px 10px;
+}
+
+.weekday {
+    display: block;
+    font-size: 14px;
+}
+
+.month {
+    display: block;
+    margin-top: 10px;
+}
+
+.number {
+    font-size: 72px;
+}
+
+.day.active {
+    position: relative;
+}
+
+.heart {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    width: 120px;
+    transform: translateX(-50%);
+}
+
+/* SECTIONS */
 .section {
-    max-width: 720px;
-    margin: 60px auto;
+    max-width: 900px;
+    margin: 120px auto;
     padding: 0 20px;
+    text-align: center;
 }
 
 .section h2 {
@@ -49,15 +172,35 @@ body {
     margin-bottom: 10px;
 }
 
+/* FORM */
 .form-wrapper iframe {
     width: 100%;
     min-height: 800px;
     border: none;
 }
 
+/* FOOTER */
 .footer {
     text-align: center;
     padding: 40px;
-    background: #e8ded1;
-    margin-top: 60px;
+    margin-top: 120px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .names {
+        font-size: 36px;
+    }
+
+    .invite-title {
+        font-size: 36px;
+    }
+
+    .calendar {
+        grid-template-columns: 1fr;
+    }
+
+    .number {
+        font-size: 56px;
+    }
 }

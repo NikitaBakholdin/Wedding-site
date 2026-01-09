@@ -4,23 +4,88 @@
     <meta charset="UTF-8">
     <title>Наташа и Никита — свадьба</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?
+        family=Montserrat:wght@300;400;500&
+        family=Great+Vibes&
+        family=Playfair+Display:wght@500;700&
+        family=Cormorant+Garamond:wght@400;600&
+        display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<header class="hero">
-    <h1>Наташа & Никита</h1>
-    <p class="date">17 июля 2026</p>
-    <p class="subtitle">Мы будем счастливы разделить этот день с вами</p>
-</header>
+<section class="hero-paper">
+    <div class="hero-content">
+        <p class="hero-title">НАША СВАДЬБА</p>
 
-<section class="section">
-    <h2>Наша история</h2>
-    <p>
-        Мы познакомились несколько лет назад и с тех пор не представляем
-        жизнь друг без друга. Приглашаем вас отпраздновать наш день вместе.
-    </p>
+        <div class="names">Наташа & Никита</div>
+
+        <img src="images/photo_page1_main.jpg" alt="Наташа и Никита" class="hero-image">
+
+        <p class="hero-date">17 · 07 · 2026 &nbsp;|&nbsp; 16:00</p>
+    </div>
 </section>
+
+<div class="red-divider"></div>
+
+<section class="invite-page">
+
+    <h1 class="invite-title">ДОРОГИЕ ДРУЗЬЯ!</h1>
+
+    <div class="red-divider"></div>
+
+    <div class="envelope-block">
+        <img src="images/card-with-red-envelope.png" class="envelope" alt="Конверт">
+        <div class="letter">
+            <p>
+                Это официальное приглашение на нашу свадьбу!
+                А получили вы его потому, что мы очень хотим
+                видеть вас в этот день рядом с нами!
+            </p>
+        </div>
+    </div>
+
+    <div class="calendar">
+        <div class="day">
+            <span class="weekday">ЧЕТВЕРГ</span>
+            <span class="month">Июль</span>
+            <span class="number">16</span>
+        </div>
+
+        <div class="day active">
+            <span class="weekday">ПЯТНИЦА</span>
+            <span class="month">Июль</span>
+            <span class="number">17</span>
+
+            <svg class="heart" viewBox="0 0 100 100">
+                <path d="M50 80
+                         C20 60, 0 40, 25 20
+                         C40 5, 50 20, 50 20
+                         C50 20, 60 5, 75 20
+                         C100 40, 80 60, 50 80"
+                      fill="none"
+                      stroke="#b21c1c"
+                      stroke-width="4"/>
+            </svg>
+        </div>
+
+        <div class="day">
+            <span class="weekday">СУББОТА</span>
+            <span class="month">Июль</span>
+            <span class="number">18</span>
+        </div>
+    </div>
+
+</section>
+
+<div class="red-divider"></div>
 
 <section class="section">
     <h2>Детали свадьбы</h2>
@@ -49,14 +114,10 @@
     <div class="form-wrapper">
         <iframe
             src="https://forms.yandex.ru/u/695ffa0d1f1eb5c6e5dfe9b5?iframe=1"
-            frameborder="0"
-            name="ya-form-695ffa0d1f1eb5c6e5dfe9b5">
+            frameborder="0">
         </iframe>
     </div>
 </section>
-
-
-
 
 <footer class="footer">
     <p>С любовью, Наташа и Никита</p>
