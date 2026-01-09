@@ -12,62 +12,135 @@ body {
     font-family: 'Cormorant Garamond', serif;
 }
 
-/* TYPOGRAPHY ROLES */
-.hero-title,
-.section h2,
-.weekday {
-    font-family: 'Courier New', Courier, monospace; 
-    letter-spacing: 3px;
+/* Красная каллиграфия (Our wedding day!) */
+.hero-cursive {
+    /* Важно: название шрифта должно в точности совпадать с Google Fonts */
+    font-family: 'Great Vibes', cursive !important;
+    color: #b21c1c;
+    /* Увеличиваем размер, каллиграфические шрифты часто выглядят мелко */
+    font-size: clamp(38px, 6vw, 52px); 
+    font-weight: 400; /* У каллиграфии не должно быть большой жирности */
+    text-transform: none;
+    margin-top: 0px; /* Сдвигаем сильнее вверх для наложения на имена */
+    margin-left: 25%;  /* Сдвигаем вправо для асимметрии */
+    margin-bottom: 50px;
+    line-height: 1;
+}
+
+/* Исправляем основной заголовок для лучшего контраста */
+.names {
+    font-family: 'Playfair Display', serif !important;
+    font-size: clamp(45px, 10vw, 90px);
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #000;
+    margin-bottom: 0;
+}
+
+/* Красивый амперсанд (&) */
+.names span {
+    /* Используем Cormorant Garamond именно в курсиве */
+    font-family: 'Cormorant Garamond', serif !important;
+    font-style: italic !important; 
+    
+    /* Сбрасываем верхний регистр, если он наследуется от .names */
+    text-transform: none; 
+    
+    /* Тонкая настройка размера и положения */
+    font-size: 1.1em; 
+    font-weight: 400;
+    margin: 0 5px; /* Небольшие отступы по бокам */
+    color: #000;
+}
+
+/* Дата под фото */
+.hero-date {
+    font-family: 'Great Vibes', cursive !important;
+    color: #b21c1c;
+    font-size: 45px;
+    letter-spacing: 6px;
+    margin-top: 30px;
     text-transform: uppercase;
 }
 
-.names,
-.invite-title,
-.number {
-    font-family: 'Playfair Display', serif;
+/* Фотография */
+.hero-image {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    display: block;
+    filter: grayscale(100%);
+    border-radius: 2px; /* Легкая четкость краев */
 }
 
-.section p,
-.section li,
-.letter {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-/* HERO */
+/* HERO КОНТЕЙНЕР */
 .hero-paper {
-    padding: 120px 20px;
+    position: relative; /* Обязательно для привязки фона */
+    overflow: hidden;
+    padding: 80px 0;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-content {
-    max-width: 900px;
-    margin: 0 auto;
+    position: relative;
+    z-index: 10; /* Поднимаем над буквами */
     text-align: center;
 }
 
-.hero-title {
-    font-size: 58px;
-    margin-bottom: 30px;
+.photo-wrapper {
+    background: white; /* Белая рамка вокруг фото как на поляроиде */
+    padding: 15px 15px 60px 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transform: rotate(-2deg); /* Легкий наклон как на референсе */
+    margin-top: 20px;
 }
 
-.names {
-    font-size: 48px;
-    margin-bottom: 40px;
+/* Контейнер для всех строк */
+.marquee-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Самый нижний слой */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0.4; /* Настройка яркости фона */
+    pointer-events: none;
+}
+
+/* Один ряд */
+.marquee-row {
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+/* Текст и анимация */
+.marquee-text {
     font-family: 'Great Vibes', cursive;
+    font-size: 70px;
+    color: #b21c1c;
+    display: inline-block;
+    padding-right: 20px;
+    animation: marquee-move 15s linear infinite;
 }
 
-.hero-image {
-    width: 70%;
-    max-width: 600px;
-    margin: 0 auto 40px;
-    display: block;
-    filter: grayscale(100%);
+/* Четные ряды движутся медленнее для эффекта хаоса как на фото */
+.marquee-row:nth-child(even) .marquee-text {
+    animation-duration: 20s;
+    animation-direction: reverse;
 }
 
-.hero-date {
-    font-size: 24px;
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 4px;
+@keyframes marquee-move {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 /* RED LINE */
@@ -87,8 +160,8 @@ body {
 
 .invite-title {
     position: relative;
-    font-family: 'Playfair Display', serif;
-    font-size: 68px; /* Крупный размер как на фото */
+    font-family: 'Playfair Display', serif !important;
+    font-size: 60px; /* Крупный размер как на фото */
     margin-bottom: 40px;
 }
 
@@ -118,8 +191,8 @@ body {
     box-shadow: none;
     opacity: 1;
 
-    font-family: 'Courier New', Courier, monospace; 
-    font-size: 24px;
+    font-family: 'Great Vibes', cursive !important;
+    font-size: 32px;
     line-height: 1.4;
     color: #444;
 
@@ -144,12 +217,13 @@ body {
 
 .weekday {
     display: block;
-    font-size: 14px;
+    font-size: 24px;
 }
 
 .month {
     display: block;
     margin-top: 10px;
+    font-size: 20px;
 }
 
 .number {
@@ -162,10 +236,10 @@ body {
 
 .heart {
     position: absolute;
-    top: 58%; /* Центрируем относительно числа */
+    top: 62%; /* Центрируем относительно числа */
     left: 50%;
-    width: 150px; /* Размер можно подправить под ваши цифры */
-    height: 120px;
+    width: 170px; /* Размер можно подправить под ваши цифры */
+    height: 140px;
     transform: translate(-50%, -45%) rotate(-5deg); /* Слегка наклоняем для живости */
     pointer-events: none; /* Чтобы сердце не мешало кликам, если они будут */
     z-index: 1;
@@ -208,8 +282,8 @@ body {
 
 /* Заголовок (в стиле Playfair Display) */
 .location-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 64px;
+    font-family: 'Playfair Display', serif !important;
+    font-size: 60px;
     font-weight: 500;
     line-height: 1.1;
     letter-spacing: 2px;
@@ -227,7 +301,7 @@ body {
 
 /* Адрес (имитация печатной машинки или тонкого гротеска) */
 .location-details {
-    font-family: 'Courier New', Courier, monospace; 
+    font-family: 'Playfair Display', serif !important; 
     font-size: 24px;
     font-weight: 500;
     line-height: 1.5;
@@ -250,15 +324,16 @@ body {
 
 /* Кнопка */
 .map-button {
-    display: inline-block;
-    background-color: #b21c1c;
-    color: #fff;
-    padding: 15px 60px;
+display: inline-block;
+    padding: 12px 35px;
+    border: 1px solid #b21c1c; /* Красная рамка как на фото */
+    border-radius: 50px; /* Закругленные края */
+    color: #b21c1c;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    letter-spacing: 2px;
-    transition: background 0.3s ease;
+    font-family: 'Playfair Display', serif !important;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
 }
 
 .map-button:hover {
@@ -313,8 +388,8 @@ body {
 
 /* Заголовок ТАЙМИНГ */
 .timing-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 68px; /* Крупный размер как на фото */
+    font-family: 'Playfair Display', serif !important;
+    font-size: 60px; /* Крупный размер как на фото */
     font-weight: 500;
     letter-spacing: 5px;
     margin-bottom: 5px;
@@ -354,9 +429,9 @@ body {
 
 /* Описание (Сбор гостей) */
 .event {
-    font-family: 'Courier New', Courier, monospace; 
+    font-family: 'Playfair Display', serif !important; 
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.2;
     max-width: 140px;
 }
@@ -371,7 +446,7 @@ body {
 /* Заголовок ДРЕСС-КОД (как на макете) */
 .dress-code-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(48px, 10vw, 110px); /* Адаптивный размер: от 48px до 110px */
+    font-size: clamp(48px, 10vw, 60px); /* Адаптивный размер: от 48px до 110px */
     font-weight: 500;
     letter-spacing: -2px; /* Плотное написание букв */
     text-transform: uppercase;
@@ -385,11 +460,11 @@ body {
     max-width: 850px;
     margin: 0 auto;
     /* Моноширинный шрифт для эффекта "печатной машинки" */
-    font-family: 'Courier New', Courier, monospace; 
+    font-family: 'Great Vibes', cursive;
     font-size: 24px;
-    font-weight: 1000; /* Максимальная жирность как на фото */
+    color: #b21c1c;
+    font-weight: 500; /* Максимальная жирность как на фото */
     line-height: 1.3;
-    color: #000;
     text-align: center;
     letter-spacing: -0.5px;
 }
@@ -408,19 +483,20 @@ body {
 
 /* Текст про конверты (стиль печатной машинки) */
 .gifts-message {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Playfair Display', serif !important;
     font-size: 24px;
-    font-weight: 800;
+    font-weight: 500;
     line-height: 1.4;
     color: #000;
     margin-bottom: 60px;
-    text-transform: uppercase; /* Можно убрать, если не нужен капс */
+    text-transform: none; /* Можно убрать, если не нужен капс */
 }
 
 /* Описание контактов */
 .contacts-desc {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
+    font-family: 'Great Vibes', serif;
+    font-size: 24px;
+    font-weight: 500;
     line-height: 1.5;
     margin-bottom: 30px;
     color: #333;
@@ -441,7 +517,7 @@ body {
     border-radius: 50px; /* Закругленные края */
     color: #b21c1c;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Playfair Display', serif !important;
     font-size: 16px;
     letter-spacing: 1px;
     transition: all 0.3s ease;
@@ -454,15 +530,27 @@ body {
 
 
 /* FORM */
+.form-wrapper {
+    /* Ограничиваем ширину, чтобы форма выглядела аккуратно, как в референсах */
+    max-width: 500px; 
+    /* Центрируем блок по горизонтали */
+    margin: 0 auto; 
+    /* Добавляем отступ сверху, чтобы отделить от текста */
+    padding-top: 40px; 
+}
+
 .form-wrapper iframe {
     width: 100%;
     min-height: 800px;
     border: none;
+    /* Убираем возможные зазоры снизу */
+    display: block; 
 }
 
 /* FOOTER */
 .footer {
     text-align: center;
+    font-family: 'Playfair Display', serif !important;
     padding: 40px;
     margin-top: 120px;
     font-size: 24px;
@@ -471,11 +559,12 @@ body {
 /* MOBILE */
 @media (max-width: 768px) {
     .names {
-        font-size: 36px;
+        font-size: 48px;
     }
 
     .invite-title {
-        font-size: 36px;
+        font-family: 'Playfair Display', serif !important;
+        font-size: 28px;
     }
 
     .letter {
@@ -489,20 +578,20 @@ body {
     }
 
     .number {
-        font-size: 56px;
+        font-size: 28px;
     }
         .location-title {
-        font-size: 36px;
+        font-size: 28px;
     }
     .save-place {
-        font-size: 24px;
+        font-size: 20px;
     }
     .map-button {
         width: 80%;
         padding: 15px 20px;
     }
     .timing-title {
-        font-size: 48px;
+        font-size: 28px;
     }
     .timing-subtitle {
         font-size: 28px;
@@ -512,15 +601,16 @@ body {
         gap: 30px;
     }
     .time {
-        font-size: 36px;
+        font-size: 28px;
     }
     .dress-code-title {
+        font-size: 28px;
         letter-spacing: 0;
         margin-bottom: 30px;
     }
     
     .dress-code-text {
-        font-size: 18px;
+        font-size: 20px;
         line-height: 1.4;
     }
 }
