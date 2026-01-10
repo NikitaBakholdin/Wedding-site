@@ -18,7 +18,7 @@ body {
     font-family: 'Great Vibes', cursive !important;
     color: #b21c1c;
     /* Увеличиваем размер, каллиграфические шрифты часто выглядят мелко */
-    font-size: clamp(38px, 6vw, 52px); 
+    font-size: 40px; 
     font-weight: 400; /* У каллиграфии не должно быть большой жирности */
     text-transform: none;
     margin-top: 0px; /* Сдвигаем сильнее вверх для наложения на имена */
@@ -30,7 +30,7 @@ body {
 /* Исправляем основной заголовок для лучшего контраста */
 .names {
     font-family: 'Playfair Display', serif !important;
-    font-size: clamp(45px, 10vw, 90px);
+    font-size: 46px;
     font-weight: 500;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -67,7 +67,7 @@ body {
 /* Фотография */
 .hero-image {
     width: 100%;
-    max-width: 650px;
+    max-width: 450px;
     margin: 0 auto;
     display: block;
     filter: grayscale(100%);
@@ -93,10 +93,13 @@ body {
 
 .photo-wrapper {
     background: white; /* Белая рамка вокруг фото как на поляроиде */
-    padding: 15px 15px 60px 15px;
+    padding: 20px 20px 30px 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transform: rotate(-2deg); /* Легкий наклон как на референсе */
-    margin-top: 20px;
+    margin-top:30px;
+    display: inline-block; /* Рамка сожмется до размера фотографии */
+    max-width: 100%;        /* Чтобы на мобильных не вылезала за края */
+    line-height: 0;
 }
 
 /* Контейнер для всех строк */
@@ -161,7 +164,7 @@ body {
 .invite-title {
     position: relative;
     font-family: 'Playfair Display', serif !important;
-    font-size: 60px; /* Крупный размер как на фото */
+    font-size: 46px; /* Крупный размер как на фото */
     margin-bottom: 40px;
 }
 
@@ -283,12 +286,12 @@ body {
 /* Заголовок (в стиле Playfair Display) */
 .location-title {
     font-family: 'Playfair Display', serif !important;
-    font-size: 60px;
+    font-size: 32px;
     font-weight: 500;
     line-height: 1.1;
     letter-spacing: 2px;
     margin-bottom: 10px;
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 /* Курсивная надпись Save the place */
@@ -389,7 +392,7 @@ display: inline-block;
 /* Заголовок ТАЙМИНГ */
 .timing-title {
     font-family: 'Playfair Display', serif !important;
-    font-size: 60px; /* Крупный размер как на фото */
+    font-size: 32px; /* Крупный размер как на фото */
     font-weight: 500;
     letter-spacing: 5px;
     margin-bottom: 5px;
@@ -427,8 +430,10 @@ display: inline-block;
 
 /* Блок с названием события */
 .event {
-    font-family: 'Playfair Display', serif !important;
-    font-size: 24px;
+    font-family: 'Great Vibes', cursive;
+    color: #000000;
+    margin-bottom: 80px;
+    font-size: 32px;
     font-weight: 500;
     min-height: 50px; /* Фиксирует высоту текста, чтобы картинки не прыгали */
     display: flex;
@@ -471,26 +476,25 @@ display: inline-block;
 
 /* СЕКЦИЯ ДРЕСС-КОД */
 .dress-code-section {
-    padding: 120px 20px;
+    padding: 80px 20px;
     text-align: center;
     background-color: #fff;
 }
 
 /* Заголовок ДРЕСС-КОД (как на макете) */
 .dress-code-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(48px, 10vw, 60px); /* Адаптивный размер: от 48px до 60px */
+    font-family: 'Playfair Display', serif !important;
+    font-size: 32px;
     font-weight: 500;
-    letter-spacing: -2px; /* Плотное написание букв */
-    text-transform: uppercase;
-    margin-bottom: 50px;
+    line-height: 1.4;
     color: #000;
-    line-height: 0.9;
+    margin-bottom: 60px;
+    text-transform: none;
 }
 
 /* Текст (эффект жирной печатной машинки) */
 .dress-code-text {
-    max-width: 850px;
+    max-width: 650px;
     margin: 0 auto;
     /* Моноширинный шрифт для эффекта "печатной машинки" */
     font-family: 'Great Vibes', cursive;
@@ -500,6 +504,29 @@ display: inline-block;
     line-height: 1.3;
     text-align: center;
     letter-spacing: -0.5px;
+}
+
+.dress-code-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: block;
+}
+
+.palette-wrapper {
+    display: inline-block; /* Позволяет блоку сжаться до размера картинки и центрироваться */
+    background: #ffffff;
+    padding: 15px 15px 40px 15px; /* Снизу отступ больше, как у поляроида */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transform: rotate(2deg); /* Легкий наклон */
+    margin-top: 40px;
+    max-width: 90%; /* Чтобы не вылезало на мобильных */
+}
+
+.palette-image {
+    display: block;
+    width: 100%;
+    max-width: 450px; /* Ограничиваем размер самой картинки */
+    height: auto;
 }
 
 /* СЕКЦИЯ ПОДАРКИ И КОНТАКТЫ */
@@ -583,10 +610,11 @@ display: inline-block;
 /* FOOTER */
 .footer {
     text-align: center;
-    font-family: 'Playfair Display', serif !important;
+    font-family: 'Great Vibes', cursive;    
     padding: 40px;
     margin-top: 120px;
-    font-size: 24px;
+    font-size: 38px;
+    color: #b21c1c;
 }
 
 /* MOBILE */
@@ -691,7 +719,7 @@ display: inline-block;
     .lottie-pin { width: 130px; height: 130px; }
     .lottie-heart { width: 90px; height: 90px; }
     .lottie-confetti { width: 110px; height: 110px; }
-    }
+
     .time {
         font-size: 28px;
     }
@@ -702,6 +730,12 @@ display: inline-block;
     }
     
     .dress-code-text {
-        font-size: 20px;
+        font-size: 28px;
         line-height: 1.4;
     }
+
+    .palette-wrapper {
+        transform: rotate(0deg);
+        padding: 10px 10px 30px 10px;
+    }
+}
