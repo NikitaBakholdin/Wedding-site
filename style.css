@@ -406,18 +406,37 @@ display: inline-block;
 }
 
 /* Сетка с пунктами времени */
+/* Контейнер для всей сетки на ПК */
 .timing-grid {
     display: flex;
-    justify-content: space-around; /* Распределяем элементы по горизонтали */
-    flex-wrap: wrap;
-    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1100px;
+    margin: 60px auto;
+    gap: 40px; /* Расстояние между пунктами */
 }
 
+/* Настройка каждой колонки */
 .timing-item {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 150px;
+    text-align: center;
+}
+
+/* Стили для Lottie-анимаций */
+.timing-lottie {
+    width: 140px; /* Оптимальный размер для монитора */
+    height: 140px;
+    margin-top: 20px;
+    /* Убираем возможные рывки при загрузке */
+    transition: transform 0.3s ease;
+}
+
+/* Эффект легкого увеличения при наведении мыши */
+.timing-item:hover .timing-lottie {
+    transform: scale(1.1);
 }
 
 /* Время (16:00) */
@@ -461,7 +480,7 @@ display: inline-block;
     margin: 0 auto;
     /* Моноширинный шрифт для эффекта "печатной машинки" */
     font-family: 'Great Vibes', cursive;
-    font-size: 24px;
+    font-size: 32px;
     color: #b21c1c;
     font-weight: 500; /* Максимальная жирность как на фото */
     line-height: 1.3;
@@ -484,7 +503,7 @@ display: inline-block;
 /* Текст про конверты (стиль печатной машинки) */
 .gifts-message {
     font-family: 'Playfair Display', serif !important;
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 500;
     line-height: 1.4;
     color: #000;
@@ -495,7 +514,7 @@ display: inline-block;
 /* Описание контактов */
 .contacts-desc {
     font-family: 'Great Vibes', serif;
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 500;
     line-height: 1.5;
     margin-bottom: 30px;
@@ -558,8 +577,55 @@ display: inline-block;
 
 /* MOBILE */
 @media (max-width: 768px) {
+
     .names {
-        font-size: 48px;
+        font-size: clamp(32px, 10vw, 42px) !important;
+        line-height: 1.1;
+        display: flex;
+        flex-direction: column; /* Имена друг под другом, если не влезают */
+        gap: 5px;
+    }
+
+    .names span {
+        font-size: 0.8em; /* Амперсанд чуть меньше */
+        margin: 5px 0;
+    }
+
+    /* Красная надпись: убираем большой margin-left, чтобы не уезжала за экран */
+    .hero-cursive {
+        font-size: 28px !important;
+        margin-left: 0 !important; 
+        margin-top: 15px !important;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Фотография: делаем чуть шире на мобильных */
+    .hero-image {
+        width: 70% !important;
+        max-width: 80%;
+    }
+
+    .photo-wrapper {
+        background: white;
+        /* Уменьшаем внутренние отступы слева и справа (второе и четвертое значения) */
+        padding: 10px 10px 40px 10px; 
+        
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transform: rotate(-2deg);
+        margin-top: 20px;
+
+        /* КЛЮЧЕВЫЕ ИЗМЕНЕНИЯ: */
+        display: inline-block; /* Рамка сожмется до размера фотографии */
+        max-width: 90%;        /* Чтобы на мобильных не вылезала за края */
+        line-height: 0;        /* Убирает лишний зазор под фото внутри рамки */
+    }
+
+    .marquee-text {
+        font-size: 40px; /* Уменьшаем буквы на фоне */
+    }
+    .marquee-area {
+        opacity: 0.2; /* Делаем еще бледнее, чтобы текст читался лучше */
     }
 
     .invite-title {
@@ -597,8 +663,13 @@ display: inline-block;
         font-size: 28px;
     }
     .timing-grid {
-        flex-direction: column; /* На телефонах пункты будут друг под другом */
-        gap: 30px;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+    .timing-lottie {
+        width: 100px; /* На телефонах делаем чуть меньше */
+        height: 100px;
     }
     .time {
         font-size: 28px;

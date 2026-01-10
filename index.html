@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400&family=Great+Vibes&family=Montserrat:wght@500&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 </head>
 
 <body>
@@ -26,7 +27,7 @@
     </div>
 
     <div class="hero-content">
-        <h1 class="names">Никита <span>&</span> Наташа</h1>
+        <h1 class="names">Наталья <span>&</span> Никита</h1>
         <p class="hero-cursive">День нашей свадьбы!</p>
         
         <div class="photo-wrapper">
@@ -115,25 +116,44 @@
 </section>
 
 <section class="timing-section">
-    <div class="timing-divider"></div>
+    <h2 class="timing-title">ТАЙМИНГ</h2>
+    <p class="timing-cursive">торжественного дня</p>
 
-    <div class="timing-container">
-        <h2 class="timing-title">ТАЙМИНГ</h2>
-        <p class="timing-subtitle">торжественного дня</p>
+    <div class="timing-grid">
+        <div class="timing-item">
+            <div class="time">16:00</div>
+            <div class="event">Сбор гостей</div>
+            <dotlottie-player 
+                src="images/Location_Pin.json" 
+                background="transparent" 
+                speed="1" 
+                class="timing-lottie" 
+                loop autoplay>
+            </dotlottie-player>
+        </div>
 
-        <div class="timing-grid">
-            <div class="timing-item">
-                <span class="time">16:00</span>
-                <span class="event">Сбор гостей</span>
-            </div>
-            <div class="timing-item">
-                <span class="time">16:30</span>
-                <span class="event">Начало банкета</span>
-            </div>
-            <div class="timing-item">
-                <span class="time">21:00</span>
-                <span class="event">Окончание банкета</span>
-            </div>
+        <div class="timing-item">
+            <div class="time">16:30</div>
+            <div class="event">Начало банкета</div>
+            <dotlottie-player 
+                src="images/banquet.json" 
+                background="transparent" 
+                speed="1" 
+                class="timing-lottie" 
+                loop autoplay>
+            </dotlottie-player>
+        </div>
+
+        <div class="timing-item">
+            <div class="time">21:00</div>
+            <div class="event">Окончание банкета</div>
+            <dotlottie-player 
+                src="images/celebrate.json" 
+                background="transparent" 
+                speed="1" 
+                class="timing-lottie" 
+                loop autoplay>
+            </dotlottie-player>
         </div>
     </div>
 </section>
@@ -170,7 +190,7 @@
             
             <div class="phones">
                 <a href="tel:+79851961971" class="phone-link">+7 (985) 196-19-71 Никита</a>
-                <a href="tel:+79165842022" class="phone-link">+7 (916) 584-20-22 Наташа</a>
+                <a href="tel:+79165842022" class="phone-link">+7 (916) 584-20-22 Наталья</a>
             </div>
         </div>
     </div>
@@ -179,7 +199,7 @@
 
 <section class="section" style="text-align: center; padding: 100px 20px;">
     <h2 class="location-title">Подтверждение участия</h2>
-    <p class="event" style="max-width: 100%; margin-bottom: 30px;">
+    <p class="event" style="max-width: 100%; margin-bottom: 40px; padding: 50px 20px;">
         Пожалуйста, ответьте на несколько вопросов ниже
     </p>
 
@@ -190,7 +210,7 @@
 </section>
 
 <footer class="footer">
-    <p>С любовью, Наташа и Никита</p>
+    <p>С любовью, Наталья и Никита</p>
 </footer>
 
 </body>
