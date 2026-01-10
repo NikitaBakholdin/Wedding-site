@@ -406,17 +406,17 @@ display: inline-block;
 }
 
 /* Сетка с пунктами времени */
-/* Контейнер для всей сетки на ПК */
+/* Контейнер всей сетки */
 .timing-grid {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-start; /* Выравнивание колонок по верхней линии */
     max-width: 1100px;
     margin: 60px auto;
-    gap: 40px; /* Расстояние между пунктами */
+    gap: 20px;
 }
 
-/* Настройка каждой колонки */
+/* Каждая колонка */
 .timing-item {
     flex: 1;
     display: flex;
@@ -425,20 +425,42 @@ display: inline-block;
     text-align: center;
 }
 
-/* Стили для Lottie-анимаций */
+/* Блок с названием события */
+.event {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 24px;
+    font-weight: 500;
+    min-height: 50px; /* Фиксирует высоту текста, чтобы картинки не прыгали */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Контейнер для Lottie (самое важное для выравнивания) */
+.lottie-container {
+    display: flex;
+    align-items: center;   /* Центрирует картинку по вертикали внутри контейнера */
+    justify-content: center;
+    width: 100%;
+    height: 180px;         /* Высота самого высокого элемента (конфетти) */
+}
+
+/* Общие стили для всех анимаций */
 .timing-lottie {
-    width: 140px; /* Оптимальный размер для монитора */
-    height: 140px;
-    margin-top: 20px;
-    /* Убираем возможные рывки при загрузке */
+    display: block;
     transition: transform 0.3s ease;
 }
 
-/* Эффект легкого увеличения при наведении мыши */
+/* Индивидуальные размеры (настройте под себя) */
+.lottie-pin { width: 180px; height: 180px; }
+.lottie-heart { width: 110px; height: 110px; }
+.lottie-confetti { width: 130px; height: 130px; }
+
+/* Эффект при наведении на всю колонку */
 .timing-item:hover .timing-lottie {
     transform: scale(1.1);
 }
-
 /* Время (16:00) */
 .time {
     font-family: 'Playfair Display', serif;
@@ -446,14 +468,6 @@ display: inline-block;
     margin-bottom: 10px;
 }
 
-/* Описание (Сбор гостей) */
-.event {
-    font-family: 'Playfair Display', serif !important; 
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.2;
-    max-width: 140px;
-}
 
 /* СЕКЦИЯ ДРЕСС-КОД */
 .dress-code-section {
@@ -465,7 +479,7 @@ display: inline-block;
 /* Заголовок ДРЕСС-КОД (как на макете) */
 .dress-code-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(48px, 10vw, 60px); /* Адаптивный размер: от 48px до 110px */
+    font-size: clamp(48px, 10vw, 60px); /* Адаптивный размер: от 48px до 60px */
     font-weight: 500;
     letter-spacing: -2px; /* Плотное написание букв */
     text-transform: uppercase;
@@ -667,9 +681,16 @@ display: inline-block;
         align-items: center;
         gap: 50px;
     }
+    .lottie-container {
+        height: auto; /* На мобильных фиксированная высота не нужна */
+    }
     .timing-lottie {
         width: 100px; /* На телефонах делаем чуть меньше */
         height: 100px;
+    }
+    .lottie-pin { width: 130px; height: 130px; }
+    .lottie-heart { width: 90px; height: 90px; }
+    .lottie-confetti { width: 110px; height: 110px; }
     }
     .time {
         font-size: 28px;
@@ -684,4 +705,3 @@ display: inline-block;
         font-size: 20px;
         line-height: 1.4;
     }
-}
