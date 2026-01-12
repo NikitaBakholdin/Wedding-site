@@ -325,6 +325,12 @@ body {
     filter: grayscale(100%); /* Делаем черно-белым как на макете */
 }
 
+.location-photo2 {
+    height: 5%;
+    display: block;
+    filter: grayscale(100%); /* Делаем черно-белым как на макете */
+}
+
 /* Кнопка */
 .map-button {
 display: inline-block;
