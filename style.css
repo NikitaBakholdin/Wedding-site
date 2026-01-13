@@ -324,6 +324,7 @@ body {
     height: auto;
     display: block;
     filter: grayscale(100%); /* Делаем черно-белым как на макете */
+    margin-bottom: -30px;
 }
 
 /* Кнопка */
@@ -338,6 +339,7 @@ display: inline-block;
     font-size: 16px;
     letter-spacing: 1px;
     transition: all 0.3s ease;
+    margin-bottom: 50px;
 }
 
 .map-button:hover {
@@ -413,16 +415,18 @@ display: inline-block;
 /* Контейнер всей сетки */
 .timing-grid {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start; /* Выравнивание колонок по верхней линии */
-    max-width: 1100px;
+    gap: 60px 40px;        /* Отступ: 40px между рядами, 20px между колонками */
+    max-width: 1000px;
     margin: 60px auto;
-    gap: 20px;
 }
 
 /* Каждая колонка */
 .timing-item {
-    flex: 1;
+    /* Чтобы в ряду было 3 элемента, задаем ширину примерно 30% */
+    flex: 0 0 30%; 
+    min-width: 250px;      /* Минимальная ширина, чтобы не сжимались слишком сильно */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -747,7 +751,7 @@ display: inline-block;
     .map-button {
         width: 60%;
         padding: 15px 20px;
-        margin-bottom: 10px;
+        margin-bottom: 50px;
         /* padding-top: -1000px; */
     }
     .timing-title {
