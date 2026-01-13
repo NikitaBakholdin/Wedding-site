@@ -691,9 +691,9 @@ display: inline-block;
     }
 
     .letter {
-        font-size: 24px; /* На мобильных уменьшаем, чтобы текст не вылезал за конверт */
+        font-size: 20px; /* На мобильных уменьшаем, чтобы текст не вылезал за конверт */
         bottom: 6px;    /* Приподнимаем или опускаем в зависимости от картинки */
-        width: 85%;
+        width: 100%;
     }
 
     .calendar {
@@ -773,7 +773,7 @@ display: inline-block;
         height: 100px;
     }
     .lottie-zags { width: 130px; height: 130px; }
-    .lottie-kuskovo { width: 130px; height: 130px; }
+    .lottie-kuskovo { width: 180px; height: 180px; }
     .lottie-cathedral { width: 130px; height: 130px; }
     .lottie-pin { width: 130px; height: 130px; }
     .lottie-heart { width: 90px; height: 90px; }
