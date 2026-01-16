@@ -239,19 +239,30 @@ body {
 
 .heart {
     position: absolute;
-    top: 62%; /* Центрируем относительно числа */
+    top: 62%;
     left: 50%;
-    width: 170px; /* Размер можно подправить под ваши цифры */
-    height: 140px;
-    transform: translate(-50%, -45%) rotate(-5deg); /* Слегка наклоняем для живости */
-    pointer-events: none; /* Чтобы сердце не мешало кликам, если они будут */
+    width: 170px;
+    height: 130px;
+    transform: translate(-50%, -45%) rotate(-5deg);
+    pointer-events: none;
     z-index: 1;
 }
 
+/* Стили для линии пути */
 .heart-path {
-    stroke-dasharray: 300;
-    stroke-dashoffset: 300;
-    animation: drawHeart 2s ease-out forwards;
+    /* Число 400 — это примерная длина линии вашего сердца */
+    stroke-dasharray: 400; 
+    stroke-dashoffset: 400; /* Линия полностью скрыта в начале */
+    
+    /* Анимация: название | время | тип | задержка | фиксация результата */
+    animation: drawHeart 3s ease-in-out infinite;
+}
+
+/* Определение анимации рисования */
+@keyframes drawHeart {
+    to {
+        stroke-dashoffset: 0; /* Линия полностью проявляется */
+    }
 }
 
 /* Анимация "рисования" линии сердца */
@@ -270,6 +281,26 @@ body {
 
 
 /* СЕКЦИЯ МЕСТО ПРОВЕДЕНИЯ */
+
+.route-path {
+    position: relative;
+    padding-top: 20px;
+}
+
+/* Создаем вертикальную пунктирную линию по центру */
+.route-path::before {
+    content: "";
+    position: absolute;
+    top: 150px; /* Начинаем под заголовком */
+    bottom: 100px; /* Заканчиваем перед последней кнопкой */
+    left: 50%;
+    width: 2px;
+    border-left: 2px dashed #b21c1c; /* Красный пунктир */
+    transform: translateX(-50%);
+    z-index: 1; /* Линия на заднем плане */
+    opacity: 0.5;
+}
+
 .location-section {
     position: relative;
     padding: 100px 20px;
@@ -313,12 +344,32 @@ body {
     letter-spacing: 1px;
 }
 
-/* Фотография */
-.location-image-wrapper {
-    max-width: 600px;
-    margin: 0 auto 50px;
+/* .location-details::before {
+    content: "●";
+    display: block;
+    color: #b21c1c;
+    font-size: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 6;
+} */
+
+.location-item {
+    position: relative;
+    margin-bottom: 80px; /* Расстояние между точками маршрута */
+    z-index: 2;
 }
 
+/* Фотография */
+.location-image-wrapper {
+    position: relative;
+    z-index: 5;
+    background: #fff; /* Белый фон обязателен, чтобы скрыть линию под фото */
+    padding: 15px 15px 30px 15px; /* Эффект поляроида */
+    display: inline-block;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    margin: 20px auto;
+}
 .location-photo {
     width: 100%;
     height: auto;
@@ -552,7 +603,7 @@ display: inline-block;
 /* Текст про конверты (стиль печатной машинки) */
 .gifts-message {
     font-family: 'Playfair Display', serif !important;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 500;
     line-height: 1.4;
     color: #000;
@@ -735,6 +786,21 @@ display: inline-block;
         font-size: 20px;
     }
 
+    .route-path::before {
+        left: 30px; /* Линия идет вдоль левого края */
+        transform: none;
+    }
+    
+    .location-item {
+        text-align: left;
+        padding-left: 60px; /* Отступ от линии */
+    }
+    
+    .location-image-wrapper {
+        margin: 20px 0;
+        transform: rotate(0deg) !important; /* Убираем наклон для узких экранов */
+    }
+
     .location-details {
         font-family: 'Great Vibes', cursive;
         color: #b21c1c;
@@ -746,11 +812,11 @@ display: inline-block;
         padding-top: 50px;
     }
 
-    .location-image-wrapper {
+    /* .location-image-wrapper {
         max-width: 500px;
         margin: 0 auto 50px;
         padding-bottom:0px;
-    }
+    } */
 
     .location-section {
         position: relative;
