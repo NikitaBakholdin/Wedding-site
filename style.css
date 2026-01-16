@@ -779,6 +779,18 @@ display: inline-block;
     .number {
         font-size: 28px;
     }
+
+    .heart {
+        position: absolute;
+        top: 58%;
+        left: 50%;
+        width: 170px;
+        height: 130px;
+        transform: translate(-50%, -45%) rotate(-5deg);
+        pointer-events: none;
+        z-index: 1;
+    }
+
     .location-title {
         font-size: 28px;
     }
